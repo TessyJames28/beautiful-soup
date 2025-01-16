@@ -8,4 +8,5 @@ url = requests.get('https://www.timesjobs.com/candidate/job-search.html?searchTy
 soup = BeautifulSoup(url, 'lxml')
 job = soup.find('li', class_ = 'clearfix job-bx wht-shd-bx')
 company_name = job.find('h3', class_ = 'joblist-comp-name').text.replace(' ', '') # Remove spaces
-print(company_name)
+skills = job.find('div', class_ = 'more-skills-sections').text.replace(' ', '') # Remove spaces               
+print(skills)
