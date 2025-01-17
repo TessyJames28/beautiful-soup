@@ -13,8 +13,8 @@ for job in jobs:
         company_name = job.find('h3', class_ = 'joblist-comp-name').text.strip() # Remove spaces
         skills = job.find('div', class_ = 'more-skills-sections').text.strip() # Remove spaces
         skills = (' ').join(skills.split()) # Remove excess spaces and normalize the skills        
-        print(f"""
-        Company Name: {company_name}
-        Required Skills: {skills}
-        """)
-        print('')
+        job_link = job.header.h2.a['href']  # Get the job link
+        print(f"Company Name: {company_name}")
+        print(f"Required Skills: {skills}")
+        print(f"Job Link: {job_link}")
+        print("")
