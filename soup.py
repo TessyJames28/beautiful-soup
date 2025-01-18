@@ -34,4 +34,13 @@ headers = soup.find_all("h2", string=re.compile("(H|h)eader"))
 content = soup.select("p")
 content1 = soup.select("div p") # grab all p tags inside a div tag
 content2 = soup.select("h2 ~ p") # grab all p tags that are siblings of h2 tags
-print(content2)
+
+# Grab specific elements with id selector
+bold = soup.select("p#paragraph-id b")
+
+# Run nested calls
+paragraphs = soup.select("body > p") # Direct child of the  body tag
+print(paragraphs)
+# Loop through the the list of elements and print them
+for paragraph in paragraphs:
+    print(paragraph.select("i")) # Select all italic tags inside the paragraph
