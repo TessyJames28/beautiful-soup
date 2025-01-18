@@ -1,4 +1,5 @@
 from bs4 import BeautifulSoup
+import re # Regular expression
 import requests
 
 # Load webpage content
@@ -23,4 +24,14 @@ paragraph = soup.find_all("p", attrs={"id": "paragraph-id"})
 body = soup.find("body")
 div = body.find("div")
 header = div.find("h1")
-print(header)
+
+# Search for specific strings in the find/find_all call using regex
+string_search = soup.find_all("p", string=re.compile("Some"))
+headers = soup.find_all("h2", string=re.compile("(H|h)eader"))
+
+
+# Select (CSS selector) BeautifulSoup mimics the CSS styling
+content = soup.select("p")
+content1 = soup.select("div p") # grab all p tags inside a div tag
+content2 = soup.select("h2 ~ p") # grab all p tags that are siblings of h2 tags
+print(content2)
