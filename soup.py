@@ -40,7 +40,24 @@ bold = soup.select("p#paragraph-id b")
 
 # Run nested calls
 paragraphs = soup.select("body > p") # Direct child of the  body tag
-print(paragraphs)
+# print(paragraphs)
 # Loop through the the list of elements and print them
 for paragraph in paragraphs:
     print(paragraph.select("i")) # Select all italic tags inside the paragraph
+
+
+# Getting different properties of the HTML
+# Get the string of the tag using .string
+header = soup.find("h2")
+# print(header.string)
+
+# Using get_text() method to get the text with multiple child elements
+div = soup.find("div")
+# print(div.get_text())
+
+# Get a specific property from an element
+link = soup.find("a")
+print(link['href']) # Get the href attribute of the a tag
+
+paragraphs = soup.select("p#paragraph-id")
+print(paragraphs[0]["id"]) # Get the id attribute of the p tag
