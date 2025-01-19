@@ -1,4 +1,4 @@
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, NavigableString, Comment
 import re # Regular expression
 import requests
 
@@ -57,7 +57,20 @@ div = soup.find("div")
 
 # Get a specific property from an element
 link = soup.find("a")
-print(link['href']) # Get the href attribute of the a tag
+# print(link['href']) # Get the href attribute of the a tag
 
 paragraphs = soup.select("p#paragraph-id")
-print(paragraphs[0]["id"]) # Get the id attribute of the p tag
+# print(paragraphs[0]["id"]) # Get the id attribute of the p tag
+
+
+# Path syntax
+# print(soup.body.div) # Get the first div tag inside the body tag
+# print(soup.body.div.h1) # Get the first h1 tag inside the div tag inside the body tag
+# print(soup.body.div.h1.string) # Get the string of the h1 tag inside the div tag inside the body tag
+
+
+# Paraent, sibling, and child
+# print(soup.body.prettify())
+div = soup.body.find("div")
+next_sibling = div.find_next_siblings()
+print(next_sibling)
