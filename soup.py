@@ -28,7 +28,7 @@ header = div.find("h1")
 # Search for specific strings in the find/find_all call using regex
 string_search = soup.find_all("p", string=re.compile("Some"))
 headers = soup.find_all("h2", string=re.compile("(H|h)eader"))
-
+# print(f"Headers: {headers}")
 
 # Select (CSS selector) BeautifulSoup mimics the CSS styling
 content = soup.select("p")
