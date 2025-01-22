@@ -25,8 +25,6 @@ for tr in table.find_all("tr")[1:]:
 print(f"Rows: {rows}")
 print("")
 
-# Create a pandas dataframe
+# Create a pandas dataframe and print
 df = pd.DataFrame(rows, columns=headers)
-
-# Display the dataframe
 print(df)
